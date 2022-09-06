@@ -28,12 +28,13 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOSTS', default=[]))
+ALLOWED_HOSTS = tuple( env.list('ALLOWED_HOSTS', default=[]) )
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,3 +132,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Auth Redirects
+LOGIN_REDIRECT_URL = 'pages:pages'
+LOGOUT_REDIRECT_URL = 'home'
